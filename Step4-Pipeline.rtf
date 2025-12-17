@@ -1,0 +1,440 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 AppleColorEmoji;\f1\froman\fcharset0 Times-Bold;\f2\froman\fcharset0 Times-Roman;
+\f3\fmodern\fcharset0 Courier;\f4\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c50196\c50196\c50196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid201\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid202\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid402\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}
+{\list\listtemplateid8\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid701\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid8}
+{\list\listtemplateid9\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid801\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid9}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}{\listoverride\listid9\listoverridecount0\ls9}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f0\fs48 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u55358 \u56809 
+\f1\b  Step 4 \'97 CI/CD Pipeline (GitHub Actions)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 We\'92re going to 
+\f1\b \strokec2 build, test, and push your Docker image
+\f2\b0 \strokec2  automatically whenever you push code.\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec2 Ci Cd Pipeline\'b7 yaml\
+\
+name: Python DevOps Metrics CI/CD\
+\
+on:\
+push:\
+branches: [ main ]\
+pull_request:\
+branches: [ main ]\
+\
+jobs:\
+build-test:\
+runs-on: ubuntu-latest\
+\
+steps:\
+# -----------------------------\
+# Step 1: Checkout code\
+# -----------------------------\
+- name: Checkout repository\
+uses: actions/checkout@v3\
+\
+# -----------------------------\
+# Step 2: Setup Python\
+# -----------------------------\
+- name: Set up Python 3.12\
+uses: actions/setup-python@v4\
+with:\
+python-version: 3.12\
+\
+# -----------------------------\
+# Step 3: Install dependencies\
+# -----------------------------\
+- name: Install dependencies\
+run: |\
+python -m pip install --upgrade pip\
+pip install -r requirements.txt\
+\
+# -----------------------------\
+# Step 4: Run tests\
+# -----------------------------\
+- name: Run tests\
+run: |\
+pytest tests/\
+\
+docker-build-push:\
+needs: build-test\
+runs-on: ubuntu-latest\
+\
+steps:\
+- name: Checkout repository\
+uses: actions/checkout@v3\
+\
+- name: Log in to Docker Hub\
+uses: docker/login-action@v2\
+with:\
+username: $\{\{ secrets.DOCKER_USERNAME \}\}\
+password: $\{\{ secrets.DOCKER_PASSWORD \}\}\
+\
+- name: Build Docker image\
+run: |\
+docker build -t $\{\{ secrets.DOCKER_USERNAME \}\}/python-devops-metrics:latest .\
+\
+- name: Push Docker image\
+run: |\
+docker push $\{\{ secrets.DOCKER_USERNAME \}\}/python-devops-metrics:latest\
+\
+\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \strokec2 Perfect, now we\'92re at the 
+\f1\b \strokec2 CI/CD stage
+\f2\b0 \strokec2 , which is where DevOps shines. Let\'92s break this down fully.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 1\uc0\u65039 \u8419 
+\f1\b  High-Level Understanding\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 \strokec2 CI/CD ensures:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls1\ilvl0
+\f1\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Continuous Integration (CI)
+\f2\b0 \uc0\u8232 Every change is automatically built and tested.\
+\ls1\ilvl0
+\f1\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Continuous Deployment (CD)
+\f2\b0 \uc0\u8232 Images/artifacts are automatically built and optionally deployed.\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \strokec2 Why DevOps cares:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls2\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Avoids \'93works on my machine\'94 problems\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Catches bugs early\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Provides repeatable deployable artifacts\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 2\uc0\u65039 \u8419 
+\f1\b  Low-Level Mental Model\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 \strokec2 GitHub Actions is 
+\f1\b \strokec2 event-driven
+\f2\b0 \strokec2 :\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls3\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 You 
+\f3\fs26 push
+\f2\fs24  to 
+\f3\fs26 main
+\f2\fs24 \
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GitHub Actions triggers a 
+\f1\b workflow
+\f2\b0  (
+\f3\fs26 .github/workflows/ci-cd.yml
+\f2\fs24 )\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Jobs run in 
+\f1\b ephemeral VMs
+\f2\b0  (Ubuntu in this case)\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Steps:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa240\partightenfactor0
+\ls3\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Checkout code\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Install Python & dependencies\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Run tests (
+\f3\fs26 pytest
+\f2\fs24 )\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Build Docker image\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Authenticate with Docker Hub\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Push image\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls4\ilvl0
+\f3\fs26 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 needs:
+\f2\fs24  makes jobs sequential (test first, then docker push)\
+\ls4\ilvl0
+\f3\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 secrets
+\f2\fs24  keeps passwords safe\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls4\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Each run is 
+\f1\b clean
+\f2\b0  
+\f4 \uc0\u8594 
+\f2  no leftover state\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 3\uc0\u65039 \u8419 
+\f1\b  Workflow File Explained\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 File:
+\f2\b0 \strokec2  
+\f3\fs26 \strokec2 .github/workflows/ci-cd.yml
+\f2\fs24 \strokec2  (created in canvas)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls5\ilvl0
+\f3\fs26 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 name
+\f2\fs24  
+\f4 \uc0\u8594 
+\f2  Human-readable workflow name\
+\ls5\ilvl0
+\f3\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 on
+\f2\fs24  
+\f4 \uc0\u8594 
+\f2  Trigger events (push, PR)\
+\ls5\ilvl0
+\f3\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 jobs.build-test
+\f2\fs24  
+\f4 \uc0\u8594 
+\f2  CI job\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa240\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Checks out repo\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Sets Python 3.12\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Installs dependencies\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Runs tests\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls5\ilvl0
+\f3\fs26 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 jobs.docker-build-push
+\f2\fs24  
+\f4 \uc0\u8594 
+\f2  CD job\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa240\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Runs 
+\f1\b after CI
+\f2\b0  (
+\f3\fs26 needs: build-test
+\f2\fs24 )\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Logs into Docker Hub (with secrets)\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f2 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Builds and pushes image\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0 \cf0 \strokec2 \uc0\u55357 \u56481 
+\f2  
+\f1\b \strokec2 Interview note
+\f2\b0 \strokec2 :\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \strokec2 "Always separate CI and CD. CI verifies, CD delivers."\strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 4\uc0\u65039 \u8419 
+\f1\b  GitHub Secrets Setup\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 \strokec2 Go to your repository 
+\f4 \uc0\u8594 
+\f2  
+\f3\fs26 \strokec2 Settings
+\f2\fs24 \strokec2  
+\f4 \uc0\u8594 
+\f2  
+\f3\fs26 \strokec2 Secrets and variables
+\f2\fs24 \strokec2  
+\f4 \uc0\u8594 
+\f2  
+\f3\fs26 \strokec2 Actions
+\f2\fs24 \strokec2  
+\f4 \uc0\u8594 
+\f2  
+\f3\fs26 \strokec2 New repository secret
+\f2\fs24 \strokec2 :\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth2340\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth2659\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\f1\b \cf0 \strokec2 Secret\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Value\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth2340\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth2659\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0\fs26 \cf0 DOCKER_USERNAME
+\f2\fs24 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 your Docker Hub username\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth2340\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth2659\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 DOCKER_PASSWORD
+\f2\fs24 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 your Docker Hub password\cell \lastrow\row
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \strokec2 Secrets are 
+\f1\b \strokec2 encrypted
+\f2\b0 \strokec2  and not visible in logs.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 5\uc0\u65039 \u8419 
+\f1\b  Quick Test Locally (Optional)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls6\ilvl0
+\f2\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 You can simulate the workflow locally using 
+\f1\b Act
+\f2\b0 :\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \strokec2 \
+brew install act  # MacOS\
+act -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\fs24 \cf0 \strokec2 This is 
+\f1\b \strokec2 advanced, but nice to know for debugging
+\f2\b0 \strokec2 .\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 6\uc0\u65039 \u8419 
+\f1\b  Commands You\'92ll Use in Real Life\
+\pard\pardeftab720\partightenfactor0
+
+\f3\b0\fs26 \cf0 \strokec2 \
+git push origin main         # Trigger pipeline\
+docker login                 # Debug Docker authentication\
+docker build -t myimage:tag . # Local test\
+docker push myimage:tag       # Local test\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\fs24 \cf0 \strokec2 Check workflow run:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls7\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GitHub 
+\f4 \uc0\u8594 
+\f2  Actions 
+\f4 \uc0\u8594 
+\f2  Latest run 
+\f4 \uc0\u8594 
+\f2  Logs\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 7\uc0\u65039 \u8419 
+\f1\b  Step 4 \'97 Summary\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf0 \strokec2 High-Level\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 GitHub Actions automatically 
+\f1\b \strokec2 builds, tests, and pushes
+\f2\b0 \strokec2  your Docker image whenever code changes. It ensures your app is always in a deployable state.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f1\b\fs28 \cf0 Low-Level\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 The pipeline runs in ephemeral VMs:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls8\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Checks out your code\
+\ls8\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Installs dependencies\
+\ls8\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Runs tests\
+\ls8\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Builds Docker image\
+\ls8\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Authenticates with Docker Hub\
+\ls8\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Pushes image\uc0\u8232 Each step produces logs and status for 
+\f1\b traceability and reproducibility
+\f2\b0 .\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\fs36 \cf0 \strokec2 \uc0\u9989 
+\f1\b  Step 4 COMPLETE\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\b0\fs24 \cf0 \strokec2 You now have 
+\f1\b \strokec2 fully automated CI/CD
+\f2\b0 \strokec2  for your Python metrics app:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls9\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Code is tested\
+\ls9\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Docker image is built\
+\ls9\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Docker image is pushed to Docker Hub\
+}

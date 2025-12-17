@@ -13,3 +13,6 @@ venv/
 
 # Logs
 *.logStep1-VersionControl.rtf
+*.logStep2-Application.rtf
+*.logStep3-Dockerize.rtf
+*.logStep4-Pipeline.rtf

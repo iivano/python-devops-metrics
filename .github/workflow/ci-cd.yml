@@ -1,0 +1,73 @@
+name: Python DevOps Metrics CI/CD
+
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+    # -----------------------------
+    # Step 1: Checkout code
+    # -----------------------------
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+
+    # -----------------------------
+    # Step 2: Setup Python
+    # -----------------------------
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.12
+
+
+    # -----------------------------
+    # Step 3: Install dependencies
+    # -----------------------------
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+
+    # -----------------------------
+    # Step 4: Run tests
+    # -----------------------------
+    - name: Run tests
+      run: |
+        pytest tests/
+
+
+  docker-build-push:
+    needs: build-test
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+    - name: Build Docker image
+    run: |
+      docker build -t ${{ secrets.DOCKER_USERNAME }}/python-devops-metrics:latest .
+
+    - name: Push Docker image
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/python-devops-metrics:latest

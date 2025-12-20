@@ -41,6 +41,7 @@ app = Flask(__name__)
 
 @app.route("/health", methods=["GET"])
 def health():
+    logger.info("Health check requested")
     return jsonify(
         status="ok",
         service=APP_NAME
@@ -63,7 +64,7 @@ def metrics():
         "uptime_seconds": uptime_seconds
     }
 
-    logger.info("Metrics requested")
+    logger.info("Metrics collected in {duration:.3f}s")
 
     return jsonify(metrics_data), 200
 

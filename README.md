@@ -4,7 +4,7 @@ A simple Python-based service used to demonstrate the full DevOps lifecycle:
 - Version control
 - Dockerization
 - CI/CD
-- AWS EC2 Deployment
+- Deployment
 - Monitoring
 - Secrets management
 
